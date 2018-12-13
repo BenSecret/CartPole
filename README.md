@@ -6,7 +6,7 @@ I came up with this idea after reading how AlphaGo implements a Monte Carlo Tree
 
 In the main loop, the present State is fed into a Multilayer Perceptron (MLP), twice. Once accompanied by the Action for 'move left', and once with 'move right'.
 
-The MLP calculates what it expects the next State to be, and compares it to an ideal (Zen) state of balance – which would be a State of all Zeros (upright, no movement or momentum, and in the middle). It returns the Loss Function of its predicted future State against this 'ideal' State, and chooses the most stable option.
+The MLP calculates what it expects the next State to be, and compares it to an ideal (Zen) state of balance – which would be a State of all Zeros (upright, no moandvement or momentum, and in the middle). It returns the Loss Functions of its predicted future State against this 'ideal' State, with both potential Actions, then chooses the one that gets it closest.
 
 In a sense, it's learning to imagine the task it's trying to perform, while imagining what an ideal performance would look like. No reward necessary.
 
