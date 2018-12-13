@@ -17,4 +17,4 @@ As a Markov Model, everything we need to know is in the present State. However, 
 
 In this implementation, which has been tuned specifically to solve CartPole-v0 quickly, we look up to 4 steps ahead. look_ahead_mask decides how much weight to give each prediction, from t to t+4. This kind of tuning is fairly task-specific, and a bit of a 'cheat'. However, simply feeding the State through the network four times, and taking the output at t+4, only adds a single episode to our solve time.
 
-Looking ahead seems to have a useful momentum-stabilising effect. Obviously this is where a more complex task would benefit from some conventional MCTS architecture. And this is where I expect the real potential of this approach to be.
+Looking ahead seems to have a useful momentum-stabilising effect. In more complex tasks, this would be where a more complete MCTS architecture could be implemented, allowing a degree of forward planning.
