@@ -4,7 +4,7 @@ Solving CartPole by simulating CartPole in a deep network
 ## How it works
 I came up with this idea after reading about how AlphaGo implements a Monte Carlo Tree Search, and thinking about how we approach certain tasks utilising a mental image of how they should be performed.
 
-In the main loop, the present State is fed into a Multilayer Perceptron (MLP), twice. Once with the Action for 'move left', and once with 'move right'.
+In the main loop, the present State is fed into a Multilayer Perceptron (MLP), twice. Once accompanied by the Action for 'move left', and once with 'move right'.
 
 The MLP calculates what it expects the next State to be, and compares it to an ideal (Zen) state of balance – which would be a State of all Zeros (upright, no movement or momentum, and in the middle). It returns the Loss Function of its predicted future State against this 'ideal' State, and chooses the most stable option.
 
