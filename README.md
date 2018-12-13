@@ -1,5 +1,5 @@
 # CartPole
-Solving CartPole with a Simulation Network
+Solving CartPole with an Anticipatory Network
 
 ## How it works
 I came up with this idea after reading about how AlphaGo implements a Monte Carlo Tree Search, and thinking about how we approach certain tasks utilising a mental image of how they should be performed.
