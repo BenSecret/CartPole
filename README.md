@@ -8,7 +8,7 @@ In the main loop, the present State is fed into a Multilayer Perceptron (MLP) tw
 
 The MLP calculates what it expects the next State to be, and compares it to an ideal state of balance – a sort of 'Zen' state – of all Zeros (upright, no movement or momentum, and in the middle). It returns the Loss Function of its predicted future State against the 'ideal' State, and chooses the Action path with the lowest error.
 
-In a sense, it's learning to imagine the task it's trying to perform, while picturing what an ideal performance would look like. No reward necessary. In fact, the only thing that defines its success is how well it can anticipate the next State.
+In a sense, it's learning to imagine the task it's trying to perform, while picturing what an ideal performance would look like. No reward necessary. The only thing that defines its success is how well it can anticipate the next State.
 
 ![alt-text](https://i.imgur.com/UI3nbsg.png)
 
