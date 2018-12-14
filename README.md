@@ -2,7 +2,7 @@
 Solving CartPole with an Anticipatory Network
 
 ## How it works
-I came up with this idea after reading how AlphaGo implements a Monte Carlo Tree Search, and thinking about how we approach physical tasks with a mental image of how they should be performed.
+I came up with this idea after reading how AlphaGo implements a Monte Carlo Tree Search, and thinking about how we utilise imagination in accomplishing a task.
 
 In the main loop, the present State is fed into a Multilayer Perceptron (MLP), twice. Once accompanied by the Action for 'move left', and once with 'move right'.
 
