@@ -29,11 +29,13 @@ def train_simulation(predicted, states):
 
 def run_simulation(action, state, momentum):
 	errors = []
+	states = []
 	look_ahead_mask = torch.FloatTensor([0.1,0.2,0.4,1])
 	for i in range(momentum):
 		state = simulation(torch.FloatTensor(np.hstack(([action], state.detach()))))
 		errors.append(F.mse_loss(torch.mul(state, states_mask), torch.zeros(env.observation_space.shape[0])))
-	return torch.sum(torch.mul(torch.tensor(errors), look_ahead_mask))
+		states.append(state)
+	return [torch.sum(torch.mul(torch.tensor(errors), look_ahead_mask)), states[0]]
 
 
 env = gym.make('CartPole-v0')
@@ -66,11 +68,11 @@ for episode in range(episodes):
 		if np.random.rand(1) < exploration:
 			action = np.random.randint(0,2)
 		else: 
-			_, action = torch.min(torch.FloatTensor([prediction_l, prediction_r]), 0)
+			_, action = torch.min(torch.FloatTensor([prediction_l[0], prediction_r[0]]), 0)
 
-		prediction = simulation(torch.FloatTensor(np.hstack(([action], state))))
+		prediction = [prediction_l[1], prediction_r[1]]
 		state, reward, done, _ = env.step(int(action))
-		train_simulation(prediction, state)
+		train_simulation(prediction[int(action)], state)
 		episode_reward += reward
 		
 		if done:
