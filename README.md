@@ -15,6 +15,6 @@ In a sense, it's learning to imagine the task it's trying to perform, while pict
 ## Run simulation
 As a Markov Model, everything we need to know is in the present State. However, predicting a bit further into the future is now an option. In run_simulation, we can feed the predicted State and current Action back into the MLP, to simulate the network at t+2, t+3, etc.
 
-In this implementation, which has been tuned specifically to solve CartPole-v0 quickly, we look 4 steps ahead. A simple mask decides how much weight to give each predicted State, from t+1 to t+4. This kind of tuning could be fairly task-specific. However, simply feeding the State through the network four times, and taking the output at t+4, only adds a single episode to our solve time.
+In this implementation, which has been tuned specifically to solve CartPole-v0 quickly, we look 4 steps ahead. A 'look ahead' mask decides how much weight to give each predicted State, from t+1 to t+4, blurring our predicted future State through time. This tuning could be fairly task-specific. However, simply feeding the State through the network four times, and taking the output at t+4, only adds a single episode to our solve time.
 
 Looking ahead seems to have a useful momentum-stabilising effect in this task. In more complex tasks, this could be where a more complete MCTS architecture is implemented, allowing simulated forward planning.
